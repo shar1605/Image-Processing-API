@@ -66,7 +66,7 @@ curl -X GET http://localhost:5000/api/images/image-name/thumbnails/thumbnail siz
 ```
 it will download the thumbnail image into the computer as 'thumbnail.jpg'
 
-###Get statistics
+### Get statistics
 1. Run in command prompt:
 ```bash
 curl -X GET http://localhost:5000/api/stats
