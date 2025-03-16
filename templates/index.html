@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Image Processing</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/stylesheet.css') }}">
+</head>
+
+<body>
+    <h2>Upload an Image!</h2>
+
+    <p>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            <ul>
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        {% endwith %}
+    </p>
+
+    {% if filename %}
+    <div class="container">
+        <h3>Original Image</h3>
+        <div class="image-container">
+            <img src="{{ url_for('static', filename='uploads/' + filename) }}" alt="Uploaded Image">
+        </div>
+        {% if metadata %}
+<div class="metadata-box">
+    <h3>Image Metadata</h3>
+    <ul>
+        <li><strong>Format:</strong> {{ metadata["Format"] }}</li>
+        <li><strong>Dimensions:</strong> {{ metadata["Dimensions"] }}</li>
+        <li><strong>Size:</strong> {{ metadata["Size"] }}</li>
+        {% if metadata["EXIF Data"] and metadata["EXIF Data"] != "No EXIF metadata available" %}
+            <li><strong>EXIF Data:</strong>
+                <ul>
+                {% for key, value in metadata["EXIF Data"].items() %}
+                    <li><strong>{{ key }}:</strong> {{ value }}</li>
+                {% endfor %}
+                </ul>
+            </li>
+        {% else %}
+            <li><strong>EXIF Data:</strong> No EXIF metadata available</li>
+        {% endif %}
+    </ul>
+</div>
+{% endif %}
+
+{% if caption %}
+    <div class="caption-box">
+        <h3>AI-Generated Caption</h3>
+        <p>{{ caption }}</p>
+    </div>
+{% endif %}
+
+        <h3>Generated Thumbnails</h3>
+        <div class="thumbnail-container">
+            {% for size, thumb_filename in thumbnails.items() %}
+            <div>
+                <h4>{{ size[0] }}x{{ size[1] }}</h4>
+                <img src="{{ url_for('static', filename='uploads/' + thumb_filename) }}" alt="Thumbnail">
+            </div>
+            {% endfor %}
+        </div>
+        
+       
+    </div>
+    {% endif %}
+
+    <form method="post" action="/" enctype="multipart/form-data">
+        <dl>
+            <p>
+                <input type="file" name="file" autocomplete="off" required>
+            </p>
+        </dl>
+        <p>
+            <input type="submit" value="Upload Image">
+        </p>
+    </form>
+</body>
+</html>
