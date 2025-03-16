@@ -1,0 +1,14 @@
+basic setup of flask:
+https://roytuts.com/upload-and-display-image-using-python-flask/
+
+AI model:
+https://huggingface.co/Salesforce/blip-image-captioning-large
+
+Images: 
+https://unsplash.com/
+
+Gif image:
+https://giphy.com/gifs/frog-toad-fric-tpVKvAabWt3G5csMkT
+
+Tif file:  
+https://file-examples.com/wp-content/storage/2017/10/file_example_TIFF_1MB.tiff 

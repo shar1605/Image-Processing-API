@@ -1,0 +1,7 @@
+Flask
+pymongo
+pillow
+transformers
+requests
+urllib3
+werkzeug
