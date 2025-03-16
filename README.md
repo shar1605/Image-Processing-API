@@ -10,3 +10,6 @@ This Image Processing API allows users to upload images, extract metadata, gener
 ```bash
 pip install -r requirements.txt
 ```
+### Restore MongoDB Database from JSON
+1. Download the `compass-connections.json` file.
+2. Import the .json file into MonogoDB Compass Application
