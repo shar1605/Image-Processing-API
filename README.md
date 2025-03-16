@@ -37,7 +37,7 @@ curl -X POST -F "file=@your-image.jpg" http://localhost:5000/
 ```bash
 curl -X GET http://localhost:5000/api/images/image-name.jpg
 ```
-**Response:**
+**Example Response:**
 
 ```json
 {
@@ -57,3 +57,33 @@ curl -X GET http://localhost:5000/api/images/image-name.jpg
   "error": null
 }
 ```
+### Get thumbnails
+1. The 100x100 and 300x300 are automatically saved into 'static/upload' after uploading the image into the 'index.html'
+2. To download the image in command prompt:
+   run this command:
+```bash
+curl -X GET http://localhost:5000/api/images/image-name/thumbnails/thumbnail size --output thumbnail.jpg
+```
+it will download the thumbnail image into the computer as 'thumbnail.jpg'
+
+###Get statistics
+1. Run in command prompt:
+```bash
+curl -X GET http://localhost:5000/api/stats
+```
+*Example Response*
+```json
+{
+  "Average Processing Time (s)": 16.3,
+  "Failed Uploads": 0,
+  "Successful Uploads": 4,
+  "Total Images Processed": 4
+}
+```
+
+AI assistance: 
+- Setting up the 'stylesheet.css' to make sure the 'index.html' looks neat
+- Assist in troubleshooting get/thumbnails
+- Assist in setting up extracting exif data
+- Assist in troubleshooting get/stats 
+
